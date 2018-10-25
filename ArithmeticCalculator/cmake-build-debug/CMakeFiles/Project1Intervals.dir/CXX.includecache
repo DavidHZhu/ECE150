@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/DavidZ-Zenbook/Documents/UWaterloo 1A ECE/ECE 150 Assignments/Project1Intervals/Intervals.cpp
+iostream
+-
+cmath
+-
+string
+-
+algorithm
+-
+

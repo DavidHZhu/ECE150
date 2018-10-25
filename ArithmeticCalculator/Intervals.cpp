@@ -26,17 +26,17 @@ private:
 
 public:
     void printI();
-    bool divideby0I();
+    bool divideby0();
     void enter(double a, double b);
     void negate();
     void invert();
     void ms();
     void mr();
     void mc();
-    void mplus();
-    void msubt();
+    void mAdd();
+    void mSub();
     void sAdd(double c);
-    void sMinus(double c);
+    void sSub(double c);
     void sMultiply(double c);
     void sDivide(double c);
     void sDividedBy(double c);
@@ -56,7 +56,7 @@ void Operators::printI() {
 
 }
 
-bool Operators::divideby0I() {
+bool Operators::divideby0() {
     if (immediate[0] <= 0 && immediate[1] >= 0){
         std::cout << "Error: division by zero " << std::endl;
         return true;
@@ -97,7 +97,7 @@ void Operators::invert() {
     if (!isInitI){
         std::cout << "--" << std::endl;
         return;
-    } else if (divideby0I()){
+    } else if (divideby0()){
         std::cout << "--" << std::endl;
         return;
     } else {
@@ -123,7 +123,6 @@ void Operators::ms() {
 }
 
 void Operators::mr() {
-
     if (isInitI){
         if (isInitM){
             immediate[0] = memory[0];
@@ -142,7 +141,8 @@ void Operators::mc() {
     isInitM = false;
 }
 
-void Operators::mplus() {
+void Operators::mAdd() {
+    // Checks for valid initialization and changes memory
     if (isInitI && isInitM){
         memory[0] += immediate[0];
         memory[1] += immediate[1];
@@ -157,7 +157,8 @@ void Operators::mplus() {
     }
 }
 
-void Operators::msubt() {
+void Operators::mSub() {
+    // Checks for valid input and adds to memory, otherwise do nothing
     if (isInitI && isInitM){
         memory[0] -= immediate[0];
         memory[1] -= immediate[1];
@@ -166,6 +167,7 @@ void Operators::msubt() {
         }
         printI();
         return;
+    // This part checks if the memory is not intialized and corrects for [-0,-0]
     } else if(!isInitM && isInitI) {
         if (immediate[0] == 0) {
             memory[0] = 0;
@@ -186,9 +188,11 @@ void Operators::msubt() {
 }
 
 void Operators::sAdd(double c) {
+    // Checks if input is valid and states error messages:
     if(!isInitI){
         std::cout << "--" << std::endl;
         return;
+     // Otherwise, print out new immediate interval
     } else {
         immediate[0] += c;
         immediate[1] += c;
@@ -200,10 +204,12 @@ void Operators::sAdd(double c) {
     }
 }
 
-void Operators::sMinus(double c) {
+void Operators::sSub(double c) {
+    // Check if input is valid and states error messages:
     if(!isInitI){
         std::cout << "--" << std::endl;
         return;
+     // Otherwise, print out the immediate interval
     } else {
         immediate[0] -= c;
         immediate[1] -= c;
@@ -216,14 +222,17 @@ void Operators::sMinus(double c) {
 }
 
 void Operators::sMultiply(double c) {
+    // Checks for valid input and states error messages:
     if(!isInitI){
         std::cout << "--" << std::endl;
         return;
+     // Otherwise output the new immediate interval
     } else if (c > 0){
         immediate[0] *= c;
         immediate[1] *= c;
         printI();
         return;
+     // This part checks if they are trying to multiply by a negative and corrects [-0,-0]
     } else {
         if (immediate[0] == 0) {
             immediate[0] = 0;
@@ -242,6 +251,7 @@ void Operators::sMultiply(double c) {
 }
 
 void Operators::sDivide(double c) {
+    // Checks if input is valid and states error messages:
     if(!isInitI){
         std::cout << "--" << std::endl;
         return;
@@ -250,11 +260,13 @@ void Operators::sDivide(double c) {
         std::cout << "--" <<std::endl;
         isInitI = false;
         return;
+        // Otherwise, print out the new immediate interval
     } else if (c > 0) {
         immediate[0] /= c;
         immediate[1] /= c;
         printI();
         return;
+        // This part checks if they try dividing by a negative and corrects for [-0,-0]
     } else {
         if (immediate[0] == 0) {
             immediate[0] = 0;
@@ -273,11 +285,13 @@ void Operators::sDivide(double c) {
 }
 
 void Operators::sDividedBy(double c) {
+    // Checks if input is valid and states error messages:
     if(!isInitI){
         std::cout << "--" << std::endl;
         return;
-    } else if (divideby0I()){
+    } else if (divideby0()){
         return;
+     // Otherwise, prints out new interval
     } else if (c > 0){
         immediate[0] = c / immediate[0];
         immediate[1] = c / immediate[1];
@@ -293,6 +307,7 @@ void Operators::sDividedBy(double c) {
 }
 
 void Operators::intAdd(double c, double d) {
+    // Checks if input is valid and states error messages
     if (c > d){
         std::cout << "Error: invalid interval as " << c << " > " << d << std::endl;
         if (isInitI){
@@ -304,6 +319,7 @@ void Operators::intAdd(double c, double d) {
     else if (!isInitI){
         std::cout << "--" << std::endl;
     }
+    // Otherwise, print out the new immediate interval
     if(isInitI && c < d){
         immediate[0] += c;
         immediate[1] += d;
@@ -316,6 +332,7 @@ void Operators::intAdd(double c, double d) {
 }
 
 void Operators::intSub(double c, double d) {
+    // Checks if input is valid and states error messages:
     if (c > d){
         std::cout << "Error: invalid interval as " << c << " > " << d << std::endl;
         if (isInitI){
@@ -327,6 +344,7 @@ void Operators::intSub(double c, double d) {
     else if (!isInitI){
         std::cout << "--" << std::endl;
     }
+    // Otherwise, prints new immediate interval
     if(isInitI && c < d){
         immediate[0] -= d;
         immediate[1] -= c;
@@ -339,6 +357,7 @@ void Operators::intSub(double c, double d) {
 }
 
 void Operators::intMultiply(double c, double d) {
+    // Check for valid input and states error messages:
     if (c > d){
         std::cout << "Error: invalid interval as " << c << " > " << d << std::endl;
         if (isInitI){
@@ -350,6 +369,7 @@ void Operators::intMultiply(double c, double d) {
     else if (!isInitI){
         std::cout << "--" << std::endl;
     }
+    // Otherwise it prints the new immediate interval
     if (isInitI && c < d) {
         double temp = std::max({c*immediate[0],c*immediate[1],d*immediate[0],d*immediate[1]});
         immediate[0] = std::min({c*immediate[0],c*immediate[1],d*immediate[0],d*immediate[1]});
@@ -360,6 +380,7 @@ void Operators::intMultiply(double c, double d) {
 }
 
 void Operators::intDivide(double c, double d) {
+    // Checks for valid input and states error messages:
     if (c > d){
         std::cout << "Error: invalid interval as " << c << " > " << d << std::endl;
         if (isInitI){
@@ -376,12 +397,12 @@ void Operators::intDivide(double c, double d) {
     else if (c <= 0 && d >= 0){
         std::cout << "Error: division by zero" << std::endl;
         std::cout << "--" << std::endl;
-        isInitI = true;
         immediate[0] = NAN;
         immediate[1] = NAN;
         isInitI = false;
         return;
     }
+    // Otherwise, prints new immediate interval
     if (isInitI && c < d){
         double temp = std::max({immediate[0]/c,immediate[0]/d,immediate[1]/c,immediate[1]/d});
         immediate[0] = std::min({immediate[0]/c,immediate[0]/d,immediate[1]/c,immediate[1]/d});
@@ -391,6 +412,7 @@ void Operators::intDivide(double c, double d) {
 }
 
 void Operators::intersect(double c, double d) {
+    // Checks if valid and states error messages:
     if (c > d){
         std::cout << "Error: invalid interval as " << c << " > " << d << std::endl;
         if (isInitI){
@@ -404,6 +426,7 @@ void Operators::intersect(double c, double d) {
         std::cout << "--" << std::endl;
         return;
     }
+    // Otherwise, check for intersection and print it out
     if (isInitI && c < d){
         if (c > immediate[1] || immediate[0] > d){
             std::cout << "--" << std::endl;
@@ -420,6 +443,7 @@ void Operators::intersect(double c, double d) {
 }
 
 void Operators::integers() {
+    // Check if initialized otherwise print out each integer in range
     if(!isInitI){
         std::cout << "--" << std::endl;
         return;
@@ -437,6 +461,7 @@ void Operators::integers() {
 }
 
 void Operators::cartIntegers(double c, double d) {
+    // Checks if valid, and states error messages:
     if (c > d){
         std::cout << "Error: invalid interval as " << c << " > " << d << std::endl;
         if (isInitI){
@@ -450,7 +475,7 @@ void Operators::cartIntegers(double c, double d) {
         std::cout << "--" << std::endl;
         return;
     }
-
+    // Otherwise, print out cartesian integers
     if(isInitI && c <= d){
         for (int i = 0; i <= (std::floor(immediate[1])-std::ceil(immediate[0])); ++i){
             for (int j = std::ceil(c); j <= std::floor(d); ++j) {
@@ -505,10 +530,10 @@ void interval_calculator(){
             calculator.mc();
 
         } else if (command == "m+"){
-            calculator.mplus();
+            calculator.mAdd();
 
         } else if (command == "m-"){
-            calculator.msubt();
+            calculator.mSub();
 
         } else if (command == "integers"){
             calculator.integers();
@@ -545,7 +570,7 @@ void interval_calculator(){
 
         } else if (command == "scalar_subtract"){
             std::cin >> x;
-            calculator.sMinus(x);
+            calculator.sSub(x);
 
         } else if (command == "scalar_multiply") {
             std::cin >> x;
