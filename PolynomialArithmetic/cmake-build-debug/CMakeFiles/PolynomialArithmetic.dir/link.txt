@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/PolynomialArithmetic.dir/main.cpp.o  -o PolynomialArithmetic.exe -Wl,--out-implib,libPolynomialArithmetic.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
