@@ -3,4 +3,4 @@ project(PolynomialArithmetic)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(PolynomialArithmetic main.cpp)
+add_executable(PolynomialArithmetic Polynomial.cpp)
