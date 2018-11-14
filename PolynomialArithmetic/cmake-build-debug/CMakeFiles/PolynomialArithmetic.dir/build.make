@@ -57,27 +57,27 @@ include CMakeFiles/PolynomialArithmetic.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/PolynomialArithmetic.dir/flags.make
 
-CMakeFiles/PolynomialArithmetic.dir/main.cpp.o: CMakeFiles/PolynomialArithmetic.dir/flags.make
-CMakeFiles/PolynomialArithmetic.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/PolynomialArithmetic/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PolynomialArithmetic.dir/main.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PolynomialArithmetic.dir/main.cpp.o -c /cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/PolynomialArithmetic/main.cpp
+CMakeFiles/PolynomialArithmetic.dir/Polynomial.cpp.o: CMakeFiles/PolynomialArithmetic.dir/flags.make
+CMakeFiles/PolynomialArithmetic.dir/Polynomial.cpp.o: ../Polynomial.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/PolynomialArithmetic/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PolynomialArithmetic.dir/Polynomial.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PolynomialArithmetic.dir/Polynomial.cpp.o -c /cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/PolynomialArithmetic/Polynomial.cpp
 
-CMakeFiles/PolynomialArithmetic.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PolynomialArithmetic.dir/main.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/PolynomialArithmetic/main.cpp > CMakeFiles/PolynomialArithmetic.dir/main.cpp.i
+CMakeFiles/PolynomialArithmetic.dir/Polynomial.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PolynomialArithmetic.dir/Polynomial.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/PolynomialArithmetic/Polynomial.cpp > CMakeFiles/PolynomialArithmetic.dir/Polynomial.cpp.i
 
-CMakeFiles/PolynomialArithmetic.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PolynomialArithmetic.dir/main.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/PolynomialArithmetic/main.cpp -o CMakeFiles/PolynomialArithmetic.dir/main.cpp.s
+CMakeFiles/PolynomialArithmetic.dir/Polynomial.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PolynomialArithmetic.dir/Polynomial.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/PolynomialArithmetic/Polynomial.cpp -o CMakeFiles/PolynomialArithmetic.dir/Polynomial.cpp.s
 
 # Object files for target PolynomialArithmetic
 PolynomialArithmetic_OBJECTS = \
-"CMakeFiles/PolynomialArithmetic.dir/main.cpp.o"
+"CMakeFiles/PolynomialArithmetic.dir/Polynomial.cpp.o"
 
 # External object files for target PolynomialArithmetic
 PolynomialArithmetic_EXTERNAL_OBJECTS =
 
-PolynomialArithmetic.exe: CMakeFiles/PolynomialArithmetic.dir/main.cpp.o
+PolynomialArithmetic.exe: CMakeFiles/PolynomialArithmetic.dir/Polynomial.cpp.o
 PolynomialArithmetic.exe: CMakeFiles/PolynomialArithmetic.dir/build.make
 PolynomialArithmetic.exe: CMakeFiles/PolynomialArithmetic.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/PolynomialArithmetic/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable PolynomialArithmetic.exe"

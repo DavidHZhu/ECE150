@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/PolynomialArithmetic.dir/main.cpp.o"
+  "CMakeFiles/PolynomialArithmetic.dir/Polynomial.cpp.o"
   "PolynomialArithmetic.pdb"
   "PolynomialArithmetic.exe"
   "libPolynomialArithmetic.dll.a"

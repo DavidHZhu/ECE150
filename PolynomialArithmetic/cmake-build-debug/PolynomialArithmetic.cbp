@@ -80,7 +80,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/PolynomialArithmetic/main.cpp">
+		<Unit filename="/cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/PolynomialArithmetic/Polynomial.cpp">
+			<Option target="PolynomialArithmetic"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/PolynomialArithmetic/Polynomial.h">
 			<Option target="PolynomialArithmetic"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/PolynomialArithmetic/CMakeLists.txt">

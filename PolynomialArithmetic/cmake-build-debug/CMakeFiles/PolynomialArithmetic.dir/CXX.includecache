@@ -6,7 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/PolynomialArithmetic/main.cpp
+/cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/PolynomialArithmetic/Polynomial.cpp
 iostream
 -
+cmath
+-
+string
+-
+algorithm
+-
+Polynomial.h
+/cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/PolynomialArithmetic/Polynomial.h
+
+/cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/PolynomialArithmetic/Polynomial.h
 
