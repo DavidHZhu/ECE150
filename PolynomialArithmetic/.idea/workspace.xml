@@ -29,22 +29,23 @@
     <session id="-108643458">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="5783" />
+          <entry key="cpp" value="7830" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="5783" />
+          <entry key="ObjectiveC" value="7830" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -66,15 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Polynomial.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="159" column="5" lean-forward="true" selection-start-line="159" selection-start-column="5" selection-end-line="159" selection-end-column="5" />
-              <folding>
-                <element signature="e#591#610#0" expanded="true" />
-                <element signature="e#1548#1710#0" />
-                <element signature="e#1712#1918#0" />
-                <element signature="e#1920#2141#0" />
-                <element signature="e#2143#2494#0" />
-              </folding>
+            <state relative-caret-position="-361">
+              <caret line="264" column="41" selection-start-line="264" selection-start-column="41" selection-end-line="264" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -82,8 +76,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Downloads/Polynomial.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="16" column="15" selection-start-line="16" selection-end-line="17" />
+            <state relative-caret-position="289">
+              <caret line="17" selection-start-line="17" selection-end-line="19" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -121,6 +115,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -132,7 +127,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -183,23 +177,25 @@
       <workItem from="1541979773641" duration="4432000" />
       <workItem from="1542116546641" duration="13029000" />
       <workItem from="1542205249446" duration="3669000" />
-      <workItem from="1542245368201" duration="7102000" />
+      <workItem from="1542245368201" duration="7163000" />
+      <workItem from="1542288915372" duration="13140000" />
+      <workItem from="1542326144901" duration="1222000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28232000" />
+    <option name="totallyTimeSpent" value="42655000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1757085" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18218623" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2064057" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31672597" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3113879" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -222,28 +218,32 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Polynomial.cpp</url>
+          <line>253</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/Polynomial.h">
+    <entry file="file://$PROJECT_DIR$/Polynomial.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="16" column="15" selection-start-line="16" selection-end-line="17" />
+        <state relative-caret-position="-361">
+          <caret line="264" column="41" selection-start-line="264" selection-start-column="41" selection-end-line="264" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Polynomial.cpp">
+    <entry file="file://$USER_HOME$/Downloads/Polynomial.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="159" column="5" lean-forward="true" selection-start-line="159" selection-start-column="5" selection-end-line="159" selection-end-column="5" />
-          <folding>
-            <element signature="e#591#610#0" expanded="true" />
-            <element signature="e#1548#1710#0" />
-            <element signature="e#1712#1918#0" />
-            <element signature="e#1920#2141#0" />
-            <element signature="e#2143#2494#0" />
-          </folding>
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="19" selection-end-column="78" />
         </state>
       </provider>
     </entry>

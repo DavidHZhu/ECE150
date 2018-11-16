@@ -4,7 +4,7 @@
 // Updates: Nov 12: Added header file and begun on functions
 //          Nov 13: Added poly_destructor, poly_coeffs, poly_val, poly_add, poly_subtract
 //          Nov 14: Tested functions up to poly_val; poly_add; and poly_subtract
-//
+//          Nov 15: Added poly_multiply, poly_diff,
 // To do: figure out whether or not to delete in init_poly
 //        Test the functions. !!! check for 0 val poly.
 //        Finish the other functions: DESTROY POLY CAUSES PROBLEMS
@@ -15,9 +15,6 @@
 #include <string>
 #include <algorithm>
 #include "Polynomial.h"
-//=================================================================================================
-
-
 //=================================================================================================
 bool check_zero( poly_t const &p ){
 
@@ -115,7 +112,7 @@ double poly_val( poly_t const &p, double const x){
 void poly_add( poly_t &p, poly_t const &q){
 
     // Checks for poly initialization
-    if (p.a_coeffs == nullptr) {
+    if (p.a_coeffs == nullptr || q.a_coeffs == nullptr) {
         throw 0;
     }
 
@@ -148,7 +145,7 @@ void poly_add( poly_t &p, poly_t const &q){
 
     } else {
 
-        // Assigns new values to current polynomial
+        // Assigns new values to current polynomial up to the q degree
         for (int i = 0; i <= q.degree; ++i){
             p.a_coeffs[i] += q.a_coeffs[i];
         }
@@ -164,7 +161,7 @@ void poly_add( poly_t &p, poly_t const &q){
 void poly_subtract( poly_t &p, poly_t const &q){
 
     // Checks for poly initialization
-    if (p.a_coeffs == nullptr) {
+    if (p.a_coeffs == nullptr || q.a_coeffs == nullptr) {
         throw 0;
     }
 
@@ -196,7 +193,7 @@ void poly_subtract( poly_t &p, poly_t const &q){
 
     } else {
 
-        // Assigns new values for current polynomial
+        // Assigns new values for current polynomial up to the q degree
         for (int i = 0; i <= q.degree; ++i){
             p.a_coeffs[i] -= q.a_coeffs[i];
         }
@@ -211,7 +208,7 @@ void poly_subtract( poly_t &p, poly_t const &q){
 void poly_multiply( poly_t &p, poly_t const &q ){
 
     // Checks for poly initialization
-    if (p.a_coeffs == nullptr) {
+    if (p.a_coeffs == nullptr || q.a_coeffs == nullptr) {
         throw 0;
     }
 
@@ -220,6 +217,119 @@ void poly_multiply( poly_t &p, poly_t const &q ){
         set_zero(p);
     }
 
+    // Create new array
+    poly_t new_poly{nullptr,0};
+    double *p_new_poly = new double[q.degree + p.degree + 1]{};
+
+    // Assigns values to new array:
+    for (int i = 0; i <= (q.degree+p.degree); ++i){
+        for (int j = 0; j <=q.degree; ++j){
+            p_new_poly[j+i] +=  p.a_coeffs[i] * q.a_coeffs[j];
+        }
+    }
+
+    // Initializes new polynomial
+    init_poly(new_poly, p_new_poly, p.degree + q.degree);
+
+    // Deallocates old memory
+    destroy_poly(p);
+
+    // New poly
+    p = new_poly;
+
+    // Check for zero poly
+    if(check_zero(p)){
+        set_zero(p);
+    }
+
+}
+double poly_divide( poly_t &p, double r ){
+
+    // Checks if the polynomial is initialized
+    if(p.a_coeffs == nullptr){
+        throw 0;
+    }
+
+    // Create new array
+    double *p_new_poly = new double[p.degree];
+    p_new_poly[p.degree-1] = p.a_coeffs[p.degree];
+    double carry = p.a_coeffs[p.degree];
+
+    // Assigns new values to array
+    for (int i = p.degree-2; i >=0; --i){
+        carry *= r;
+        p_new_poly[i] = p.a_coeffs[i+1] + carry;
+        carry = p_new_poly[i];
+    }
+
+    double remainder = p.a_coeffs[0] + r * carry;
+
+    // Deallocate memory
+    delete[] p_new_poly;
+
+    return remainder;
+}
+void poly_diff( poly_t &p ){
+
+    // Check if the polynomial is initialized
+    if (p.a_coeffs == nullptr){
+        throw 0;
+    }
+
+    if (p.degree == 0){
+        set_zero(p);
+        return;
+    }
+
+    // Create new array
+    poly_t new_poly{nullptr,0};
+    double *p_new_poly = new double[p.degree];
+
+    // Assign values to new array
+    for (int i = 0; i < p.degree; ++i){
+        p_new_poly[i] = p.a_coeffs[i+1] * (i+1);
+    }
+
+    // Initializes new polynomial
+    init_poly(new_poly, p_new_poly, p.degree-1);
+
+    // Deallocates old memory
+    destroy_poly(p);
+
+    // New poly
+    p = new_poly;
+
+    // Check for zero poly
+    if(check_zero(p)){
+        set_zero(p);
+    }
+}
+
+double poly_approx_int( poly_t const &p, double a, double b, unsigned int n ){
+
+    // Check for initialization
+    if (p.a_coeffs == nullptr) {
+        throw 0;
+    }
+
+    // Checks for same boundary
+    if (a == b)
+        return 0;
+
+    // Bounds for area
+    double h = (b-a)/n;
+    double area = 0;
+
+    // Calculates area
+    for (int i = 0; i <= n; ++i){
+        double Xk = a + i*h;
+        if (i == 0 || i == n){
+            area += poly_val(p,Xk);
+        } else
+            area += 2 * poly_val(p,Xk);
+    }
+
+    return area * h/2;
 }
 
 
@@ -228,17 +338,18 @@ int main(){
 
     // Initialization
     poly_t test_poly{nullptr,0};
-    poly_t test_poly2{nullptr,0};
-    double test_coeffs[3] = {3,2,1};
-    double test_coeffs2[1] = {0};
-    init_poly(test_poly,test_coeffs,2);
-    init_poly(test_poly2,test_coeffs2,0);
+    //poly_t test_poly2{nullptr,0};
+    double test_coeffs[4] = {-150,0,-2,3};
+    //double test_coeffs2[2] = {1,1};
+    init_poly(test_poly,test_coeffs,3);
+    //init_poly(test_poly2,test_coeffs2,1);
 
     //std::cout<< test_poly.a_coeffs[0] << test_poly.a_coeffs[1] << test_poly.a_coeffs[2];
     //double test_1 = poly_coeff(test_poly,1);
     //unsigned test_2 = poly_degree(test_poly);
-    poly_multiply(test_poly,test_poly2);
-    double test_3 = poly_val(test_poly, 2);
+    double test = poly_divide(test_poly,4);
+    std::cout << test << std::endl;
+    //double test_3 = poly_val(test_poly, 2);
 
     // Test add and subtract
     for (int i = 0; i <= test_poly.degree; ++i){
@@ -249,7 +360,7 @@ int main(){
     //std::cout<< test_1 << " and " << test_2 << std::endl;
   //  std::cout << "Evaluate at x = 2: y = " << test_3;
     destroy_poly(test_poly);
-    destroy_poly(test_poly2);
+    //destroy_poly(test_poly2);
     return 0;
 }
 #endif
