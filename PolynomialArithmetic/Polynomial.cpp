@@ -226,9 +226,9 @@ void poly_multiply( poly_t &p, poly_t const &q ){
     double *p_new_poly = new double[q.degree + p.degree + 1]{};
 
     // Assigns values to new array:
-    for (int i = 0; i <= (q.degree+p.degree); ++i){
-        for (int j = 0; j <=q.degree; ++j){
-            p_new_poly[j+i] +=  p.a_coeffs[i] * q.a_coeffs[j];
+    for (int i = 0; i <= (p.degree); ++i){
+        for (int j = 0; j <= q.degree; ++j){
+            p_new_poly[i+j] +=  p.a_coeffs[i] * q.a_coeffs[j];
         }
     }
 
@@ -346,15 +346,15 @@ int main(){
     // Initialization
     poly_t test_poly{nullptr,0};
     poly_t test_poly2{nullptr,0};
-    double test_coeffs[7] = {0.232475,0.0759621,103.226,32.9547,0.314227,7.85912,17.7009};
-    double test_coeffs2[10] = {1626.91,1.3643,1.191,9.43996,0.561948,0.105547,0.196488,1378.31,198.409,2.12877};
-    init_poly(test_poly,test_coeffs,6);
-    init_poly(test_poly2,test_coeffs2,9);
+    double test_coeffs[] = {3,2,1};
+    double test_coeffs2[] = {4,5,6};
+    init_poly(test_poly,test_coeffs,2);
+    init_poly(test_poly2,test_coeffs2,2);
 
     //std::cout<< test_poly.a_coeffs[0] << test_poly.a_coeffs[1] << test_poly.a_coeffs[2];
     //double test_1 = poly_coeff(test_poly,1);
     //unsigned test_2 = poly_degree(test_poly);
-    poly_add(test_poly,test_poly2);
+    poly_multiply(test_poly,test_poly2);
     //std::cout << test << std::endl;
     //double test_3 = poly_val(test_poly, 2);
 
