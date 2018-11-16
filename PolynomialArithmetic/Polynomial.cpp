@@ -143,6 +143,8 @@ void poly_add( poly_t &p, poly_t const &q){
         // New polynomial
         p = new_poly;
 
+        delete[] p_new_poly;
+
     } else {
 
         // Assigns new values to current polynomial up to the q degree
@@ -190,6 +192,8 @@ void poly_subtract( poly_t &p, poly_t const &q){
 
         // New polynomial
         p = new_poly;
+
+        delete[] p_new_poly;
 
     } else {
 
@@ -242,6 +246,7 @@ void poly_multiply( poly_t &p, poly_t const &q ){
         set_zero(p);
     }
 
+    delete[] p_new_poly;
 }
 double poly_divide( poly_t &p, double r ){
 
@@ -303,6 +308,8 @@ void poly_diff( poly_t &p ){
     if(check_zero(p)){
         set_zero(p);
     }
+
+    delete[] p_new_poly;
 }
 
 double poly_approx_int( poly_t const &p, double a, double b, unsigned int n ){
@@ -338,17 +345,17 @@ int main(){
 
     // Initialization
     poly_t test_poly{nullptr,0};
-    //poly_t test_poly2{nullptr,0};
-    double test_coeffs[4] = {-150,0,-2,3};
-    //double test_coeffs2[2] = {1,1};
-    init_poly(test_poly,test_coeffs,3);
-    //init_poly(test_poly2,test_coeffs2,1);
+    poly_t test_poly2{nullptr,0};
+    double test_coeffs[7] = {0.232475,0.0759621,103.226,32.9547,0.314227,7.85912,17.7009};
+    double test_coeffs2[10] = {1626.91,1.3643,1.191,9.43996,0.561948,0.105547,0.196488,1378.31,198.409,2.12877};
+    init_poly(test_poly,test_coeffs,6);
+    init_poly(test_poly2,test_coeffs2,9);
 
     //std::cout<< test_poly.a_coeffs[0] << test_poly.a_coeffs[1] << test_poly.a_coeffs[2];
     //double test_1 = poly_coeff(test_poly,1);
     //unsigned test_2 = poly_degree(test_poly);
-    double test = poly_divide(test_poly,4);
-    std::cout << test << std::endl;
+    poly_add(test_poly,test_poly2);
+    //std::cout << test << std::endl;
     //double test_3 = poly_val(test_poly, 2);
 
     // Test add and subtract
@@ -360,7 +367,7 @@ int main(){
     //std::cout<< test_1 << " and " << test_2 << std::endl;
   //  std::cout << "Evaluate at x = 2: y = " << test_3;
     destroy_poly(test_poly);
-    //destroy_poly(test_poly2);
+    destroy_poly(test_poly2);
     return 0;
 }
 #endif
