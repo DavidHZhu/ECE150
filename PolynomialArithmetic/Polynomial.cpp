@@ -258,6 +258,7 @@ double poly_divide( poly_t &p, double r ){
     // Create new array
     double *p_new_poly = new double[p.degree];
     p_new_poly[p.degree-1] = p.a_coeffs[p.degree];
+    poly_t new_poly{nullptr, 0};
     double carry = p.a_coeffs[p.degree];
 
     // Assigns new values to array
@@ -267,12 +268,20 @@ double poly_divide( poly_t &p, double r ){
         carry = p_new_poly[i];
     }
 
+    // Initializes new_poly
     double remainder = p.a_coeffs[0] + r * carry;
+    init_poly(new_poly,p_new_poly,p.degree-1);
 
     // Deallocate memory
+    destroy_poly(p);
+
+    // Updated poly
+    p = new_poly;
+
     delete[] p_new_poly;
 
     return remainder;
+
 }
 void poly_diff( poly_t &p ){
 
@@ -346,16 +355,16 @@ int main(){
     // Initialization
     poly_t test_poly{nullptr,0};
     poly_t test_poly2{nullptr,0};
-    double test_coeffs[] = {3,2,1};
-    double test_coeffs2[] = {4,5,6};
-    init_poly(test_poly,test_coeffs,2);
+    double test_coeffs[] = {-150,0,-2,3};
+    double test_coeffs2[] = {3,2,1};
+    init_poly(test_poly,test_coeffs,3);
     init_poly(test_poly2,test_coeffs2,2);
 
     //std::cout<< test_poly.a_coeffs[0] << test_poly.a_coeffs[1] << test_poly.a_coeffs[2];
     //double test_1 = poly_coeff(test_poly,1);
     //unsigned test_2 = poly_degree(test_poly);
-    poly_multiply(test_poly,test_poly2);
-    //std::cout << test << std::endl;
+    double test = poly_divide(test_poly,4);
+    std::cout << test << std::endl;
     //double test_3 = poly_val(test_poly, 2);
 
     // Test add and subtract
