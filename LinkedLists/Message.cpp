@@ -3,7 +3,8 @@
 // Description: Message storing class using linked lists
 // Updates: Nov.27 Added all methods but needs testing and editing
 //          Nov 28 Fixed printing needs marmoset testing.
-// To do: Test in marmoset
+//                 Successfully testted 13/13 on Marmoset
+// To do: Test in marmoset - 9/13, 13/13 DONE
 //
 //===============================================================================================================
 #include <iostream>
@@ -33,7 +34,14 @@ Message::Message() {
     head = nullptr;
 }
 
-Message::~Message() {}
+Message::~Message() {
+    Node* toDelete = head;
+    while (toDelete != nullptr){
+        Node* current = toDelete;
+        toDelete = current->p_next;
+        delete current;
+    }
+}
 
 void Message::insert(unsigned int id, std::string fragment) {
 
@@ -72,15 +80,10 @@ void Message::insert(unsigned int id, std::string fragment) {
     }
 }
 
-// NEEDS TO BE EDITED:
+
 void Message::print_message() {
 
-
     Node* current = head;
-    /*while (current){
-        std::cout << "Identifier: " << current->identifier << " Packet: " << current->get_fragment() << std::endl;
-        current = current->p_next;
-    }*/
 
     // Special case for empty list and list that doesn't start at 0
     if (head == nullptr){
@@ -92,13 +95,13 @@ void Message::print_message() {
 
     }
 
+    // Various cases for print depending on what the current node is and what it points to
     while(current){
         if (current->p_next == nullptr && current->get_fragment() != "EOT"){
             std::cout << current->get_fragment() << " ???" << std::endl;
 
         } else if (current->p_next == nullptr && current->get_fragment() == "EOT"){
             std::cout << std::endl;
-            break;
 
         } else if (current->p_next->identifier - current->identifier == 1){
             if (current->p_next != nullptr)
@@ -112,10 +115,9 @@ void Message::print_message() {
             }
 
         }
+        // Moves pointer along
         current = current->p_next;
     }
-
-
 
 }
 
