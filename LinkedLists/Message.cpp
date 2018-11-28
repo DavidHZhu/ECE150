@@ -2,7 +2,8 @@
 // Author: David Zhu
 // Description: Message storing class using linked lists
 // Updates: Nov.27 Added all methods but needs testing and editing
-// To do: Fix printing and continue testing
+//          Nov 28 Fixed printing needs marmoset testing.
+// To do: Test in marmoset
 //
 //===============================================================================================================
 #include <iostream>
@@ -24,6 +25,7 @@ std::string Node::get_fragment() {
 Node::Node(unsigned int id, std::string frag) {
     identifier = id;
     fragment = frag;
+    p_next = nullptr;
 }
 
 // Class definitions for Linked List
@@ -54,33 +56,71 @@ void Message::insert(unsigned int id, std::string fragment) {
 
     // Set current to the top of the list
     current = head;
+    bool isPlaced{false};
     // Loop to find position of element: Top if is for if it belongs in the center, else if is for the end
     while (current->p_next){
-        if (current->identifier < newNode->identifier && newNode->identifier < current->p_next->identifier){
+        if (newNode->identifier < current->p_next->identifier){
             newNode->p_next = current->p_next;
             current->p_next = newNode;
-        } else if (current->p_next == nullptr){
-            current->p_next = newNode;
-            // newNode was already nullptr here;
+            isPlaced = true;
+            break;
         }
         current = current->p_next;
     }
-
+    if (!isPlaced){
+        current->p_next = newNode;
+    }
 }
 
 // NEEDS TO BE EDITED:
 void Message::print_message() {
 
+
     Node* current = head;
-    while (current){
-        std::cout << "Number: " << current->identifier << std::endl;
+    /*while (current){
+        std::cout << "Identifier: " << current->identifier << " Packet: " << current->get_fragment() << std::endl;
+        current = current->p_next;
+    }*/
+
+    // Special case for empty list and list that doesn't start at 0
+    if (head == nullptr){
+        std::cout << "???" << std::endl;
+    } else if (head->identifier > 0){
+        for (int i = 0; i < head->identifier; ++i){
+            std::cout << "... ";
+        }
+
+    }
+
+    while(current){
+        if (current->p_next == nullptr && current->get_fragment() != "EOT"){
+            std::cout << current->get_fragment() << " ???" << std::endl;
+
+        } else if (current->p_next == nullptr && current->get_fragment() == "EOT"){
+            std::cout << std::endl;
+            break;
+
+        } else if (current->p_next->identifier - current->identifier == 1){
+            if (current->p_next != nullptr)
+                std::cout << current->get_fragment() << " ";
+            else
+                std::cout << std::endl;
+
+        } else if (current->p_next->identifier - current->identifier > 1){
+            for (int i = 1; i < current->p_next->identifier - current->identifier; ++i){
+                std::cout << current->get_fragment() << " ... ";
+            }
+
+        }
         current = current->p_next;
     }
+
+
 
 }
 
 //==============================================================================================================
-
+#ifndef MARMOSET_TESTING
 int main() {
 
     // Linked list object
@@ -103,3 +143,4 @@ int main() {
     }
     return 0;
 }
+#endif
