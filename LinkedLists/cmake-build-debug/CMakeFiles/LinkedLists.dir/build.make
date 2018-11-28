@@ -57,27 +57,27 @@ include CMakeFiles/LinkedLists.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/LinkedLists.dir/flags.make
 
-CMakeFiles/LinkedLists.dir/main.cpp.o: CMakeFiles/LinkedLists.dir/flags.make
-CMakeFiles/LinkedLists.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/LinkedLists/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/LinkedLists.dir/main.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LinkedLists.dir/main.cpp.o -c /cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/LinkedLists/main.cpp
+CMakeFiles/LinkedLists.dir/Message.cpp.o: CMakeFiles/LinkedLists.dir/flags.make
+CMakeFiles/LinkedLists.dir/Message.cpp.o: ../Message.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/LinkedLists/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/LinkedLists.dir/Message.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LinkedLists.dir/Message.cpp.o -c /cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/LinkedLists/Message.cpp
 
-CMakeFiles/LinkedLists.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LinkedLists.dir/main.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/LinkedLists/main.cpp > CMakeFiles/LinkedLists.dir/main.cpp.i
+CMakeFiles/LinkedLists.dir/Message.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LinkedLists.dir/Message.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/LinkedLists/Message.cpp > CMakeFiles/LinkedLists.dir/Message.cpp.i
 
-CMakeFiles/LinkedLists.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LinkedLists.dir/main.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/LinkedLists/main.cpp -o CMakeFiles/LinkedLists.dir/main.cpp.s
+CMakeFiles/LinkedLists.dir/Message.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LinkedLists.dir/Message.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/LinkedLists/Message.cpp -o CMakeFiles/LinkedLists.dir/Message.cpp.s
 
 # Object files for target LinkedLists
 LinkedLists_OBJECTS = \
-"CMakeFiles/LinkedLists.dir/main.cpp.o"
+"CMakeFiles/LinkedLists.dir/Message.cpp.o"
 
 # External object files for target LinkedLists
 LinkedLists_EXTERNAL_OBJECTS =
 
-LinkedLists.exe: CMakeFiles/LinkedLists.dir/main.cpp.o
+LinkedLists.exe: CMakeFiles/LinkedLists.dir/Message.cpp.o
 LinkedLists.exe: CMakeFiles/LinkedLists.dir/build.make
 LinkedLists.exe: CMakeFiles/LinkedLists.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/LinkedLists/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable LinkedLists.exe"

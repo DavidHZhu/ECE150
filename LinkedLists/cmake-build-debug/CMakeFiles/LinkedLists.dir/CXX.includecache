@@ -6,7 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/LinkedLists/main.cpp
+/cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/LinkedLists/Message.cpp
 iostream
 -
+Message.h
+/cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/LinkedLists/Message.h
+
+/cygdrive/c/Users/DavidZ-Zenbook/Documents/GitHub/ECE150/LinkedLists/Message.h
 

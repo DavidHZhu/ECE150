@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/LinkedLists.dir/main.cpp.o"
+  "CMakeFiles/LinkedLists.dir/Message.cpp.o"
   "LinkedLists.pdb"
   "LinkedLists.exe"
   "libLinkedLists.dll.a"
